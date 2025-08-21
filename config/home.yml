@@ -1,24 +1,23 @@
-- name: Home
-  columns:
-    - size: small
-      widgets:
-        - type: search
-          autofocus: true
-        - type: weather
-          location: ${WEATHER_LOCATION}
-          units: ${WEATHER_UNITS}
-          hour-format: 12h
-    - size: full
-      widgets:
-        - type: hacker-news
-          limit: 20
-          collapse-after: 5
-        - type: videos
-          # Add any channels you like. Example below is a placeholder.
-          channels:
-            - UCXJ4jKAvMMg56WGhqrZHFgw  # Techdox (example)
-    - size: small
-      widgets:
-        - type: reddit
-          subreddit: selfhosted
-          show-thumbnails: true
+name: Home
+columns:
+  - size: small
+    widgets:
+      - type: search
+        autofocus: true
+      - type: weather
+        location: ${WEATHER_LOCATION}
+        units: ${WEATHER_UNITS}
+        hour-format: 12h
+  - size: full
+    widgets:
+      - type: hacker-news
+        limit: 20
+        collapse-after: 5
+      - type: videos
+        channels:
+          - UCXJ4jKAvMMg56WGhqrZHFgw
+  - size: small
+    widgets:
+      - type: reddit
+        subreddit: selfhosted
+        show-thumbnails: true
