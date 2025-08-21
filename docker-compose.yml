@@ -1,6 +1,6 @@
 services:
   glance:
-    image: ghcr.io/glanceapp/glance:latest
+    image: glanceapp/glance:latest
     container_name: glance
     restart: unless-stopped
     ports:
