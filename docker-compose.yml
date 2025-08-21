@@ -5,10 +5,22 @@ services:
     restart: unless-stopped
     ports:
       - "8080:8080"
-    env_file:
-      - .env
     environment:
       - TZ=${TZ}
+      - WEATHER_LOCATION=${WEATHER_LOCATION}
+      - WEATHER_UNITS=${WEATHER_UNITS}
+      - PORTAINER_URL=${PORTAINER_URL}
+      - DOKPLOY_URL=${DOKPLOY_URL}
+      - AUTHENTIK_URL=${AUTHENTIK_URL}
+      - KUMA_URL=${KUMA_URL}
+      - PIPED_URL=${PIPED_URL}
+      - IMMICH_URL=${IMMICH_URL}
+      - NEXTCLOUD_URL=${NEXTCLOUD_URL}
+      - VAULTWARDEN_URL=${VAULTWARDEN_URL}
+      - PIHOLE_URL=${PIHOLE_URL}
+      - PIHOLE_PASSWORD=${PIHOLE_PASSWORD}
+      - PIHOLE_TOKEN=${PIHOLE_TOKEN}
+      - DOCKER_SOCK_PATH=${DOCKER_SOCK_PATH}
     volumes:
       - ./config:/app/config:ro
       - ./assets:/app/assets:ro
