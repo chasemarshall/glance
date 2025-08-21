@@ -1,0 +1,3 @@
+/* Optional tweaks */
+:root { --radius: 16px; }
+.widget, .card { border-radius: var(--radius); }

@@ -1,0 +1,73 @@
+- name: Homelab
+  columns:
+    - size: small
+      widgets:
+        - type: monitor
+          title: Services
+          cache: 1m
+          sites:
+            - title: Portainer
+              url: ${PORTAINER_URL}
+              icon: si:portainer
+            - title: Dokploy
+              url: ${DOKPLOY_URL}
+              icon: si:docker
+            - title: Authentik
+              url: ${AUTHENTIK_URL}
+              icon: si:authentik
+            - title: Uptime Kuma
+              url: ${KUMA_URL}
+              icon: si:uptimekuma
+            - title: Piped
+              url: ${PIPED_URL}
+              icon: si:youtube
+            - title: Immich
+              url: ${IMMICH_URL}
+              icon: si:immich
+            - title: Nextcloud
+              url: ${NEXTCLOUD_URL}
+              icon: si:nextcloud
+            - title: Vaultwarden
+              url: ${VAULTWARDEN_URL}
+              icon: si:vaultwarden
+
+        - type: dns-stats
+          title: DNS (Pi-hole)
+          # For v6 use pihole-v6 + password; for v5 use pihole + token
+          service: pihole-v6
+          url: ${PIHOLE_URL}
+          password: ${PIHOLE_PASSWORD}
+          hour-format: 12h
+
+    - size: full
+      widgets:
+        - type: docker-containers
+          title: Docker Containers
+          sock-path: ${DOCKER_SOCK_PATH}
+          running-only: false
+          format-container-names: true
+          hide-by-default: false
+        - type: server-stats
+          servers:
+            - type: local
+              name: Host
+              hide-mountpoints-by-default: true
+
+    - size: small
+      widgets:
+        - type: bookmarks
+          groups:
+            - title: Admin & Tools
+              links:
+                - title: Portainer
+                  url: ${PORTAINER_URL}
+                  icon: si:portainer
+                - title: Uptime Kuma
+                  url: ${KUMA_URL}
+                  icon: si:uptimekuma
+                - title: Authentik
+                  url: ${AUTHENTIK_URL}
+                  icon: si:authentik
+                - title: Dokploy
+                  url: ${DOKPLOY_URL}
+                  icon: si:docker

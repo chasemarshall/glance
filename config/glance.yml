@@ -1,0 +1,10 @@
+# Top-level Glance config
+title: Milo — Glance
+theme:
+  # tweak as you like; you can also add assets/user.css
+  background: 0 0 0
+  primary: 215 100 65
+
+pages:
+  - include: home.yml
+  - include: homelab.yml
