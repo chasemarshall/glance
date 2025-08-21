@@ -97,8 +97,46 @@ pages:
   # ===== Homelab =====
   - name: Homelab
     columns:
+      # LEFT: Bookmarks (moved where Services used to be)
       - size: small
         widgets:
+          - type: bookmarks
+            groups:
+              - title: DevOps & Sysadmin
+                links:
+                  - title: Cloudflare Dashboard
+                    url: https://dash.cloudflare.com/
+                    icon: si:cloudflare
+                  - title: Cloudflare Zero Trust
+                    url: https://one.dash.cloudflare.com/
+                    icon: si:cloudflare
+                  - title: Cloudflare Tunnels
+                    url: https://one.dash.cloudflare.com/
+                    icon: si:cloudflare
+                  - title: Portainer
+                    url: ${PORTAINER_URL}
+                    icon: si:portainer
+                  - title: Dokploy
+                    url: ${DOKPLOY_URL}
+                    icon: si:docker
+                  - title: Uptime Kuma
+                    url: ${KUMA_URL}
+                    icon: si:uptimekuma
+                  - title: Authentik
+                    url: ${AUTHENTIK_URL}
+                    icon: si:authentik
+                  - title: GitHub
+                    url: https://github.com/
+                    icon: si:github
+                  - title: Docker Hub
+                    url: https://hub.docker.com/
+                    icon: si:docker
+
+      # MIDDLE: Search (on top) + Services (centered)
+      - size: full
+        widgets:
+          - type: search
+            autofocus: true
           - type: monitor
             title: Services
             cache: 1m
@@ -128,6 +166,9 @@ pages:
                 url: ${VAULTWARDEN_URL}
                 icon: si:vaultwarden
 
+      # RIGHT: Lab stats (DNS + server stats)
+      - size: small
+        widgets:
           - type: dns-stats
             title: DNS (Pi-hole)
             service: pihole-v6        # use 'pihole' + token if v5
@@ -135,28 +176,6 @@ pages:
             password: ${PIHOLE_PASSWORD}
             token: ${PIHOLE_TOKEN}
             hour-format: 12h
-
-      - size: full
-        widgets: []
-
-      - size: small
-        widgets:
-          - type: bookmarks
-            groups:
-              - title: Admin & Tools
-                links:
-                  - title: Portainer
-                    url: ${PORTAINER_URL}
-                    icon: si:portainer
-                  - title: Uptime Kuma
-                    url: ${KUMA_URL}
-                    icon: si:uptimekuma
-                  - title: Authentik
-                    url: ${AUTHENTIK_URL}
-                    icon: si:authentik
-                  - title: Dokploy
-                    url: ${DOKPLOY_URL}
-                    icon: si:docker
 
           - type: server-stats
             servers:
