@@ -1,5 +1,79 @@
-# Top-level Glance config
 title: Milo — Glance
+
 pages:
-  - $include: home.yml
-  - $include: homelab.yml
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          - type: search
+            autofocus: true
+          - type: weather
+            location: Austin, Texas
+            units: imperial
+            hour-format: 12h
+      - size: full
+        widgets:
+          - type: hacker-news
+            limit: 20
+            collapse-after: 5
+      - size: small
+        widgets:
+          - type: reddit
+            subreddit: selfhosted
+            show-thumbnails: true
+
+  - name: Homelab
+    columns:
+      - size: small
+        widgets:
+          - type: monitor
+            title: Services
+            cache: 1m
+            sites:
+              - title: Portainer
+                url: https://portainer.withmilo.xyz
+                icon: si:portainer
+              - title: Dokploy
+                url: https://dokploy.withmilo.xyz
+                icon: si:docker
+              - title: Authentik
+                url: https://auth.withmilo.xyz
+                icon: si:authentik
+              - title: Uptime Kuma
+                url: https://status.withmilo.xyz
+                icon: si:uptimekuma
+              - title: Piped
+                url: https://piped.withmilo.xyz
+                icon: si:youtube
+          - type: dns-stats
+            title: DNS (Pi-hole)
+            service: pihole-v6   # change to 'pihole' if you're on v5 + token
+            url: https://pihole.withmilo.xyz
+            password: changeme
+            hour-format: 12h
+
+      - size: full
+        widgets:
+          - type: docker-containers
+            title: Docker Containers
+            sock-path: /var/run/docker.sock
+            running-only: false
+            format-container-names: true
+            hide-by-default: false
+          - type: server-stats
+            servers:
+              - type: local
+                name: Host
+                hide-mountpoints-by-default: true
+
+      - size: small
+        widgets:
+          - type: bookmarks
+            groups:
+              - title: Admin & Tools
+                links:
+                  - title: Portainer
+                    url: https://portainer.withmilo.xyz
+                    icon: si:portainer
+                  - title: Uptime Kuma
+                    url: https
