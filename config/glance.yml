@@ -59,7 +59,7 @@ pages:
             service: pihole-v6   # use 'pihole' + token if v5
             url: ${PIHOLE_URL}
             password: ${PIHOLE_PASSWORD}
-            token: ${PIHOLE_TOKEN}
+            # token: ${PIHOLE_TOKEN}
             hour-format: 12h
 
       - size: full
