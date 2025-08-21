@@ -141,6 +141,9 @@ pages:
               - type: local
                 name: Host
                 hide-mountpoints-by-default: true
+              - type: remote
+                name: Raspberry Pi
+                url: http://192.168.5.219:61209
 
       - size: small
         widgets:
