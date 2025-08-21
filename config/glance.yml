@@ -8,8 +8,8 @@ pages:
           - type: search
             autofocus: true
           - type: weather
-            location: Austin, Texas
-            units: imperial
+            location: ${WEATHER_LOCATION}
+            units: ${WEATHER_UNITS}
             hour-format: 12h
       - size: full
         widgets:
@@ -31,32 +31,42 @@ pages:
             cache: 1m
             sites:
               - title: Portainer
-                url: https://portainer.withmilo.xyz
+                url: ${PORTAINER_URL}
                 icon: si:portainer
               - title: Dokploy
-                url: https://dokploy.withmilo.xyz
+                url: ${DOKPLOY_URL}
                 icon: si:docker
               - title: Authentik
-                url: https://auth.withmilo.xyz
+                url: ${AUTHENTIK_URL}
                 icon: si:authentik
               - title: Uptime Kuma
-                url: https://status.withmilo.xyz
+                url: ${KUMA_URL}
                 icon: si:uptimekuma
               - title: Piped
-                url: https://piped.withmilo.xyz
+                url: ${PIPED_URL}
                 icon: si:youtube
+              - title: Immich
+                url: ${IMMICH_URL}
+                icon: si:immich
+              - title: Nextcloud
+                url: ${NEXTCLOUD_URL}
+                icon: si:nextcloud
+              - title: Vaultwarden
+                url: ${VAULTWARDEN_URL}
+                icon: si:vaultwarden
           - type: dns-stats
             title: DNS (Pi-hole)
-            service: pihole-v6   # change to 'pihole' if you're on v5 + token
-            url: https://pihole.withmilo.xyz
-            password: changeme
+            service: pihole-v6   # use 'pihole' + token if v5
+            url: ${PIHOLE_URL}
+            password: ${PIHOLE_PASSWORD}
+            token: ${PIHOLE_TOKEN}
             hour-format: 12h
 
       - size: full
         widgets:
           - type: docker-containers
             title: Docker Containers
-            sock-path: /var/run/docker.sock
+            sock-path: ${DOCKER_SOCK_PATH}
             running-only: false
             format-container-names: true
             hide-by-default: false
@@ -73,14 +83,14 @@ pages:
               - title: Admin & Tools
                 links:
                   - title: Portainer
-                    url: https://portainer.withmilo.xyz
+                    url: ${PORTAINER_URL}
                     icon: si:portainer
                   - title: Uptime Kuma
-                    url: https://status.withmilo.xyz
+                    url: ${KUMA_URL}
                     icon: si:uptimekuma
                   - title: Authentik
-                    url: https://auth.withmilo.xyz
+                    url: ${AUTHENTIK_URL}
                     icon: si:authentik
                   - title: Dokploy
-                    url: https://dokploy.withmilo.xyz
+                    url: ${DOKPLOY_URL}
                     icon: si:docker
