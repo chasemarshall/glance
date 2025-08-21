@@ -144,6 +144,7 @@ pages:
               - type: remote
                 name: Raspberry Pi
                 url: http://192.168.5.219:61207
+                timeout: 15s
 
       - size: small
         widgets:
