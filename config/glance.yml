@@ -32,7 +32,7 @@ pages:
               - ninadaddyisback
               - maya
               - qtcinderella
-              - arky 
+              - arky
 
       - size: full
         widgets:
@@ -49,7 +49,7 @@ pages:
               - UCBJycsmduvYEL83R_U4JriQ # MKBHD
               - UCHnyfMqiRRG1u-2MsSQLbXA # Veritasium
               - BrandonButch
-              - 
+
           - type: group
             widgets:
               - type: reddit
@@ -88,78 +88,78 @@ pages:
                 name: Microsoft
 
   # ===== Homelab =====
-- name: Homelab
-  columns:
-    - size: small
-      widgets:
-        - type: monitor
-          title: Services
-          cache: 1m
-          sites:
-            - title: Portainer
-              url: ${PORTAINER_URL}
-              icon: si:portainer
-            - title: Dokploy
-              url: ${DOKPLOY_URL}
-              icon: si:docker
-            - title: Authentik
-              url: ${AUTHENTIK_URL}
-              icon: si:authentik
-            - title: Uptime Kuma
-              url: ${KUMA_URL}
-              icon: si:uptimekuma
-            - title: Piped
-              url: ${PIPED_URL}
-              icon: si:youtube
-            - title: Immich
-              url: ${IMMICH_URL}
-              icon: si:immich
-            - title: Nextcloud
-              url: ${NEXTCLOUD_URL}
-              icon: si:nextcloud
-            - title: Vaultwarden
-              url: ${VAULTWARDEN_URL}
-              icon: si:vaultwarden
+  - name: Homelab
+    columns:
+      - size: small
+        widgets:
+          - type: monitor
+            title: Services
+            cache: 1m
+            sites:
+              - title: Portainer
+                url: ${PORTAINER_URL}
+                icon: si:portainer
+              - title: Dokploy
+                url: ${DOKPLOY_URL}
+                icon: si:docker
+              - title: Authentik
+                url: ${AUTHENTIK_URL}
+                icon: si:authentik
+              - title: Uptime Kuma
+                url: ${KUMA_URL}
+                icon: si:uptimekuma
+              - title: Piped
+                url: ${PIPED_URL}
+                icon: si:youtube
+              - title: Immich
+                url: ${IMMICH_URL}
+                icon: si:immich
+              - title: Nextcloud
+                url: ${NEXTCLOUD_URL}
+                icon: si:nextcloud
+              - title: Vaultwarden
+                url: ${VAULTWARDEN_URL}
+                icon: si:vaultwarden
 
-        - type: dns-stats
-          title: DNS (Pi-hole)
-          service: pihole-v6        # use 'pihole' + token if v5
-          url: ${PIHOLE_URL}
-          password: ${PIHOLE_PASSWORD}
-          token: ${PIHOLE_TOKEN}
-          hour-format: 12h
+          - type: dns-stats
+            title: DNS (Pi-hole)
+            service: pihole-v6        # use 'pihole' + token if v5
+            url: ${PIHOLE_URL}
+            password: ${PIHOLE_PASSWORD}
+            token: ${PIHOLE_TOKEN}
+            hour-format: 12h
 
-    - size: full
-      widgets: []
+      - size: full
+        widgets: []
 
-    - size: small
-      widgets:
-        - type: bookmarks
-          groups:
-            - title: Admin & Tools
-              links:
-                - title: Portainer
-                  url: ${PORTAINER_URL}
-                  icon: si:portainer
-                - title: Uptime Kuma
-                  url: ${KUMA_URL}
-                  icon: si:uptimekuma
-                - title: Authentik
-                  url: ${AUTHENTIK_URL}
-                  icon: si:authentik
-                - title: Dokploy
-                  url: ${DOKPLOY_URL}
-                  icon: si:docker
+      - size: small
+        widgets:
+          - type: bookmarks
+            groups:
+              - title: Admin & Tools
+                links:
+                  - title: Portainer
+                    url: ${PORTAINER_URL}
+                    icon: si:portainer
+                  - title: Uptime Kuma
+                    url: ${KUMA_URL}
+                    icon: si:uptimekuma
+                  - title: Authentik
+                    url: ${AUTHENTIK_URL}
+                    icon: si:authentik
+                  - title: Dokploy
+                    url: ${DOKPLOY_URL}
+                    icon: si:docker
 
-        - type: server-stats
-          servers:
-            - type: local
-              name: Host
-              hide-mountpoints-by-default: true
-            - type: remote
-              name: Raspberry Pi
-              url: http://192.168.5.219:61207
-              timeout: 15s
+          - type: server-stats
+            servers:
+              - type: local
+                name: Host
+                hide-mountpoints-by-default: true
+              - type: remote
+                name: Raspberry Pi
+                url: http://192.168.5.219:61207
+                timeout: 15s
 
   # ===== Markets (preset) =====
   - name: Markets
@@ -309,4 +309,3 @@ pages:
                     url: https://twitter.com/
                   - title: Instagram
                     url: https://www.instagram.com/
-
