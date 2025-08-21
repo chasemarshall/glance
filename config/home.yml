@@ -13,9 +13,6 @@ columns:
       - type: hacker-news
         limit: 20
         collapse-after: 5
-      - type: videos
-        channels:
-          - UCXJ4jKAvMMg56WGhqrZHFgw
   - size: small
     widgets:
       - type: reddit
