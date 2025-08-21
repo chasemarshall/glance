@@ -6,5 +6,5 @@ theme:
   primary: 215 100 65
 
 pages:
-  - include: home.yml
-  - include: homelab.yml
+  - $include: home.yml
+  - $include: homelab.yml
