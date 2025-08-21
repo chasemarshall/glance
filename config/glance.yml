@@ -1,9 +1,7 @@
 title: Milo — Glance
 
 pages:
-  # ===== Default homepage layout (from Glance’s example) =====
-  # Calendar (top-left) → RSS → Twitch, HN/Lobsters (center), Videos,
-  # Reddit tech + selfhosted, Weather (top-right), Releases, Markets.
+  # ===== Home (default layout) =====
   - name: Home
     columns:
       - size: small
@@ -47,7 +45,7 @@ pages:
               - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
               - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
               - UCsBjURrPoezykLs9EqgamOA # Fireship
-              - UCBJycsmduvYEL83R_U4JriQ # Marques Brownlee
+              - UCBJycsmduvYEL83R_U4JriQ # MKBHD
               - UCHnyfMqiRRG1u-2MsSQLbXA # Veritasium
 
           - type: group
@@ -63,7 +61,7 @@ pages:
         widgets:
           - type: weather
             location: ${WEATHER_LOCATION}
-            units: ${WEATHER_UNITS}   # "metric" or "imperial"
+            units: ${WEATHER_UNITS}
             hour-format: 12h
 
           - type: releases
@@ -87,7 +85,7 @@ pages:
               - symbol: MSFT
                 name: Microsoft
 
-  # ===== Your Homelab tab =====
+  # ===== Homelab =====
   - name: Homelab
     columns:
       - size: small
@@ -123,7 +121,7 @@ pages:
 
           - type: dns-stats
             title: DNS (Pi-hole)
-            service: pihole-v6     # switch to 'pihole' + token if v5
+            service: pihole-v6        # use 'pihole' + token if v5
             url: ${PIHOLE_URL}
             password: ${PIHOLE_PASSWORD}
             token: ${PIHOLE_TOKEN}
@@ -163,7 +161,7 @@ pages:
                     url: ${DOKPLOY_URL}
                     icon: si:docker
 
-                    # PRESETS
+  # ===== Markets (preset) =====
   - name: Markets
     columns:
       - size: small
@@ -251,62 +249,63 @@ pages:
               - url: https://feeds.a.dj.com/rss/RSSMarketsMain.xml
                 title: Wall Street Journal
 
-- name: Startpage
-  width: slim
-  hide-desktop-navigation: true
-  center-vertically: true
-  columns:
-    - size: full
-      widgets:
-        - type: search
-          autofocus: true
+  # ===== Startpage (minimal) =====
+  - name: Startpage
+    width: slim
+    hide-desktop-navigation: true
+    center-vertically: true
+    columns:
+      - size: full
+        widgets:
+          - type: search
+            autofocus: true
 
-        - type: monitor
-          cache: 1m
-          title: Services
-          sites:
-            - title: Jellyfin
-              url: https://yourdomain.com/
-              icon: si:jellyfin
-            - title: Gitea
-              url: https://yourdomain.com/
-              icon: si:gitea
-            - title: qBittorrent # only for Linux ISOs, of course
-              url: https://yourdomain.com/
-              icon: si:qbittorrent
-            - title: Immich
-              url: https://yourdomain.com/
-              icon: si:immich
-            - title: AdGuard Home
-              url: https://yourdomain.com/
-              icon: si:adguard
-            - title: Vaultwarden
-              url: https://yourdomain.com/
-              icon: si:vaultwarden
+          - type: monitor
+            cache: 1m
+            title: Services
+            sites:
+              - title: Jellyfin
+                url: https://yourdomain.com/
+                icon: si:jellyfin
+              - title: Gitea
+                url: https://yourdomain.com/
+                icon: si:gitea
+              - title: qBittorrent
+                url: https://yourdomain.com/
+                icon: si:qbittorrent
+              - title: Immich
+                url: https://yourdomain.com/
+                icon: si:immich
+              - title: AdGuard Home
+                url: https://yourdomain.com/
+                icon: si:adguard
+              - title: Vaultwarden
+                url: https://yourdomain.com/
+                icon: si:vaultwarden
 
-        - type: bookmarks
-          groups:
-            - title: General
-              links:
-                - title: Gmail
-                  url: https://mail.google.com/mail/u/0/
-                - title: Amazon
-                  url: https://www.amazon.com/
-                - title: Github
-                  url: https://github.com/
-            - title: Entertainment
-              links:
-                - title: YouTube
-                  url: https://www.youtube.com/
-                - title: Prime Video
-                  url: https://www.primevideo.com/
-                - title: Disney+
-                  url: https://www.disneyplus.com/
-            - title: Social
-              links:
-                - title: Reddit
-                  url: https://www.reddit.com/
-                - title: Twitter
-                  url: https://twitter.com/
-                - title: Instagram
-                  url: https://www.instagram.com/
+          - type: bookmarks
+            groups:
+              - title: General
+                links:
+                  - title: Gmail
+                    url: https://mail.google.com/mail/u/0/
+                  - title: Amazon
+                    url: https://www.amazon.com/
+                  - title: Github
+                    url: https://github.com/
+              - title: Entertainment
+                links:
+                  - title: YouTube
+                    url: https://www.youtube.com/
+                  - title: Prime Video
+                    url: https://www.primevideo.com/
+                  - title: Disney+
+                    url: https://www.disneyplus.com/
+              - title: Social
+                links:
+                  - title: Reddit
+                    url: https://www.reddit.com/
+                  - title: Twitter
+                    url: https://twitter.com/
+                  - title: Instagram
+                    url: https://www.instagram.com/
