@@ -76,4 +76,11 @@ pages:
                     url: https://portainer.withmilo.xyz
                     icon: si:portainer
                   - title: Uptime Kuma
-                    url: https
+                    url: https://status.withmilo.xyz
+                    icon: si:uptimekuma
+                  - title: Authentik
+                    url: https://auth.withmilo.xyz
+                    icon: si:authentik
+                  - title: Dokploy
+                    url: https://dokploy.withmilo.xyz
+                    icon: si:docker
