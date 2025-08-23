@@ -195,7 +195,7 @@ pages:
                 url: https://dozzle.withmilo.xyz
                 icon: si:docker
               - title: Pi-hole
-                url: https://pihole.withmilo.xyz
+                url: https://pihole.withmilo.xyz/admin/
                 icon: si:pihole
               - title: Netdata
                 url: https://netdata.withmilo.xyz
