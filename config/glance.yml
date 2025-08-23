@@ -17,7 +17,7 @@ pages:
             first-day-of-week: monday
 
           - type: rss
-            limit: 10
+            limit: 20
             collapse-after: 3
             cache: 12h
             feeds:
