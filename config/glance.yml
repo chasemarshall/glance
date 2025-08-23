@@ -35,6 +35,8 @@ pages:
                 limit: 2
               - url: https://feeds.megaphone.fm/STU4418364045
                 title: WVFRM Podcast
+              - url: https://openai.com/news/rss.xml
+                title: OpenAI News
 
           - type: twitch-channels
             channels:
