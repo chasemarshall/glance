@@ -235,14 +235,13 @@ pages:
                 hide-mountpoints-by-default: true
 
           # RSS Widget
-          - type: rss
-            title: RSS Feed
-            limit: 5
-            collapse-after: 3
-            cache: 12h
-            feeds:
-              - url: https://fusion-production-2363.up.railway.app/
-                title: Custom Feed
+          - type: bookmarks
+            title: RSS
+            groups:
+              - links:
+                  - title: Fusion
+                    url: https://fusion-production-2363.up.railway.app/
+                    icon: si:folo
 
           # GitHub Repositories
           - type: releases
