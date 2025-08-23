@@ -17,7 +17,7 @@ pages:
             first-day-of-week: monday
 
           - type: rss
-            limit: 20
+            limit: 10
             collapse-after: 3
             cache: 12h
             feeds:
@@ -30,6 +30,7 @@ pages:
               - url: https://samwho.dev/rss.xml
               - url: https://ishadeed.com/feed.xml
                 title: Ahmad Shadeed
+                limit: 3
               - url: https://www.vox.com/rss/index.xml
                 title: Vox
                 limit: 2
