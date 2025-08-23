@@ -129,114 +129,123 @@ pages:
                 name: Microsoft
 
   # ========================================================================
-  # HOMELAB PAGE - Infrastructure Management
+  # HOMELAB PAGE - Infrastructure Management (REORGANIZED)
   # ========================================================================
   - name: Homelab
     columns:
-      # LEFT - Quick Access Links
+      # LEFT - Weather & Quick Links
       - size: small
         widgets:
+          # Weather at the top
+          - type: weather
+            location: ${WEATHER_LOCATION}
+            units: ${WEATHER_UNITS}
+            hour-format: 12h
+
+          # Bookmarks
           - type: bookmarks
-            title: Infrastructure
+            title: Quick Access
             groups:
-              - title: Cloud & DNS
-                links:
-                  - title: Cloudflare Dashboard
-                    url: https://dash.cloudflare.com/
+              - links:
+                  - title: Cloudflare
+                    url: https://dash.cloudflare.com
                     icon: si:cloudflare
-                  - title: Zero Trust
-                    url: https://one.dash.cloudflare.com/
-                    icon: si:cloudflare
-                  - title: Tunnels
-                    url: https://one.dash.cloudflare.com/
-                    icon: si:cloudflare
-
-              - title: Container Management
-                links:
-                  - title: Portainer
-                    url: ${PORTAINER_URL}
-                    icon: si:portainer
+                  - title: Mail
+                    url: https://mail.proton.me
+                    icon: si:proton
                   - title: Dokploy
-                    url: ${DOKPLOY_URL}
+                    url: https://dash.heysonder.xyz
                     icon: si:docker
-                  - title: Docker Hub
-                    url: https://hub.docker.com/
-                    icon: si:docker
+                  - title: Chat
+                    url: https://chat.heysonder.xyz
+                    icon: si:discord
 
-              - title: Development
-                links:
-                  - title: GitHub
-                    url: https://github.com/
-                    icon: si:github
-                  - title: Uptime Kuma
-                    url: ${KUMA_URL}
-                    icon: si:uptimekuma
-                  - title: Authentik
-                    url: ${AUTHENTIK_URL}
-                    icon: si:authentik
-
-      # CENTER - Search & Service Monitoring
+      # CENTER - Search & Services
       - size: full
         widgets:
           # Search Bar
           - type: search
             autofocus: true
 
-          # Service Status Monitor
+          # Services Monitor
           - type: monitor
-            title: Service Status
+            title: Services
             cache: 1m
             sites:
-              # Infrastructure Services
-              - title: Portainer
-                url: ${PORTAINER_URL}
-                icon: si:portainer
-              - title: Dokploy
-                url: ${DOKPLOY_URL}
-                icon: si:docker
-              - title: Authentik
-                url: ${AUTHENTIK_URL}
-                icon: si:authentik
-              - title: Uptime Kuma
-                url: ${KUMA_URL}
-                icon: si:uptimekuma
-              # User Services
               - title: Piped
-                url: ${PIPED_URL}
+                url: https://piped.withmilo.xyz
                 icon: si:youtube
-              - title: Immich
-                url: ${IMMICH_URL}
-                icon: si:immich
-              - title: Nextcloud
-                url: ${NEXTCLOUD_URL}
-                icon: si:nextcloud
               - title: Vaultwarden
-                url: ${VAULTWARDEN_URL}
+                url: https://vaultwarden.withmilo.xyz
                 icon: si:vaultwarden
+              - title: Portainer
+                url: https://portainer.withmilo.xyz
+                icon: si:portainer
+              - title: Redlib
+                url: https://reddit.withmilo.xyz
+                icon: si:reddit
+              - title: Home Assistant
+                url: https://ha.withmilo.xyz
+                icon: si:homeassistant
+              - title: Dozzle
+                url: https://dozzle.withmilo.xyz
+                icon: si:docker
+              - title: Pi-hole
+                url: https://pihole.withmilo.xyz
+                icon: si:pihole
 
-      # RIGHT - System Statistics
+          # Reddit Communities
+          - type: group
+            title: Subreddits
+            widgets:
+              - type: reddit
+                subreddit: technology
+                show-thumbnails: true
+              - type: reddit
+                subreddit: homelab
+                show-thumbnails: true
+              - type: reddit
+                subreddit: selfhosted
+                show-thumbnails: true
+
+      # RIGHT - Tasks & System Info
       - size: small
         widgets:
-          # DNS Statistics
-          - type: dns-stats
-            title: Pi-hole DNS
-            service: pihole-v6
-            url: ${PIHOLE_URL}
-            password: ${PIHOLE_PASSWORD}
-            token: ${PIHOLE_TOKEN}
-            hour-format: 12h
+          # Task Widget
+          - type: to-do
+            title: Tasks
+            id: homelab-tasks
 
-          # Server Performance
+          # Server Statistics
           - type: server-stats
             title: System Stats
             servers:
               - type: local
                 name: Main Host
                 hide-mountpoints-by-default: true
-              - type: remote
-                name: Raspberry Pi
-                url: http://192.168.5.219:61207
-                timeout: 15s
+
+          # RSS Widget
+          - type: rss
+            title: RSS Feed
+            limit: 5
+            collapse-after: 3
+            cache: 12h
+            feeds:
+              - url: https://fusion-production-2363.up.railway.app/
+                title: Custom Feed
+
+          # GitHub Repositories
+          - type: releases
+            title: GitHub Services
+            cache: 1d
+            repositories:
+              - immich-app/immich
+              - cloudflare/cloudflared
+              - portainer/portainer
+              - open-webui/open-webui
+              - piped-video/piped
+              - dani-garcia/vaultwarden
+              - home-assistant/core
 
   # ========================================================================
   # MARKETS PAGE - Financial Dashboard
