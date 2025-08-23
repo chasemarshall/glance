@@ -30,7 +30,8 @@ pages:
               - url: https://samwho.dev/rss.xml
               - url: https://ishadeed.com/feed.xml
                 title: Ahmad Shadeed
-
+              - url: https://www.vox.com/rss/index.xml
+                title: Vox
           - type: twitch-channels
             channels:
               - theprimeagen
