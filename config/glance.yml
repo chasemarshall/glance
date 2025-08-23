@@ -201,6 +201,7 @@ pages:
           # Reddit Communities
           - type: group
             title: Subreddits
+            style: horizontal-cards
             widgets:
               - type: reddit
                 subreddit: technology
