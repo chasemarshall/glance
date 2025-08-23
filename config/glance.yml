@@ -207,21 +207,22 @@ pages:
           # Reddit Communities
           - type: group
             title: Subreddits
-            limit: 4
+            collapse-after: 4
+            limit: 10
             widgets:
               - type: reddit
                 subreddit: technology
                 style: horizontal-cards
-                limit: 4
+                # limit: 4
                 show-thumbnails: true
               - type: reddit
                 subreddit: homelab
                 style: horizontal-cards
-                limit: 4
+                # limit: 4
                 show-thumbnails: true
               - type: reddit
                 subreddit: selfhosted
-                limit: 4
+                # limit: 4
                 style: horizontal-cards
                 show-thumbnails: true
 
