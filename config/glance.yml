@@ -156,9 +156,9 @@ pages:
                   - title: Dokploy
                     url: https://dash.heysonder.xyz
                     icon: si:docker
-                  - title: LLMs
+                  - title: Chat
                     url: https://chat.heysonder.xyz
-                    icon: si:ollama
+                    icon: si:discord
 
       # CENTER - Search & Services
       - size: full
@@ -166,10 +166,6 @@ pages:
           # Search Bar
           - type: search
             autofocus: true
-            bangs:
-              - title: YouTube
-                shortcut: "!yt"
-                url: https://www.youtube.com/results?search_query={QUERY}
 
           # Services Monitor
           - type: monitor
@@ -195,13 +191,12 @@ pages:
                 url: https://dozzle.withmilo.xyz
                 icon: si:docker
               - title: Pi-hole
-                url: https://pihole.withmilo.xyz/login
+                url: https://pihole.withmilo.xyz
                 icon: si:pihole
 
           # Reddit Communities
           - type: group
             title: Subreddits
-            style: horizontal-cards
             widgets:
               - type: reddit
                 subreddit: technology
@@ -229,15 +224,15 @@ pages:
                 name: Main Host
                 hide-mountpoints-by-default: true
 
-#          # RSS Widget
-#          - type: url
-#            title: Fusion
-#            limit: 5
-#            collapse-after: 3
-#            cache: 12h
-#            feeds:
-#              - url: https://fusion-production-2363.up.railway.app/
-#                title: Custom Feed
+          # RSS Widget
+          - type: rss
+            title: RSS Feed
+            limit: 5
+            collapse-after: 3
+            cache: 12h
+            feeds:
+              - url: https://fusion-production-2363.up.railway.app/
+                title: Custom Feed
 
           # GitHub Repositories
           - type: releases
