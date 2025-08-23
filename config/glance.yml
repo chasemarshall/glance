@@ -32,8 +32,10 @@ pages:
                 title: Ahmad Shadeed
               - url: https://www.vox.com/rss/index.xml
                 title: Vox
+                limit: 2
               - url: https://feeds.megaphone.fm/STU4418364045
                 title: WVFRM Podcast
+
           - type: twitch-channels
             channels:
               - theprimeagen
