@@ -26,7 +26,7 @@ pages:
           # RSS Feeds - Tech & News
           - type: rss
             title: Latest Articles
-            limit: 10
+            limit: 4
             collapse-after: 3
             cache: 12h
             feeds:
