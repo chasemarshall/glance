@@ -181,7 +181,7 @@ pages:
                 icon: si:youtube
               - title: Vaultwarden
                 url: https://vaultwarden.withmilo.xyz
-                icon: si:vaultwarden
+                icon: si:bitwarden
               - title: Portainer
                 url: https://portainer.withmilo.xyz
                 icon: si:portainer
