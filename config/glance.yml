@@ -210,12 +210,15 @@ pages:
             widgets:
               - type: reddit
                 subreddit: technology
+                style: horizontal-cards
                 show-thumbnails: true
               - type: reddit
                 subreddit: homelab
+                style: horizontal-cards
                 show-thumbnails: true
               - type: reddit
                 subreddit: selfhosted
+                style: horizontal-cards
                 show-thumbnails: true
 
       # RIGHT - Tasks & System Info
