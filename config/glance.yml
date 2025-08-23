@@ -156,9 +156,9 @@ pages:
                   - title: Dokploy
                     url: https://dash.heysonder.xyz
                     icon: si:docker
-                  - title: Chat
+                  - title: LLMs
                     url: https://chat.heysonder.xyz
-                    icon: si:discord
+                    icon: si:ollama
 
       # CENTER - Search & Services
       - size: full
@@ -166,6 +166,10 @@ pages:
           # Search Bar
           - type: search
             autofocus: true
+            bangs:
+              - title: YouTube
+                shortcut: "!yt"
+                url: https://www.youtube.com/results?search_query={QUERY}
 
           # Services Monitor
           - type: monitor
