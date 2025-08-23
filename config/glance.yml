@@ -1,5 +1,8 @@
-title: Milo — Glance
+# ============================================================================
+# Glance Dashboard Configuration
+# ============================================================================
 
+# Theme Configuration
 theme:
   background-color: 240 21 15
   contrast-multiplier: 1.2
@@ -8,19 +11,26 @@ theme:
   negative-color: 347 70 65
 
 pages:
-  # ===== Home (default layout) =====
+  # ========================================================================
+  # HOME PAGE - Main Dashboard
+  # ========================================================================
   - name: Home
     columns:
+      # LEFT SIDEBAR - Calendar & Content Feeds
       - size: small
         widgets:
+          # Calendar Widget
           - type: calendar
             first-day-of-week: monday
 
+          # RSS Feeds - Tech & News
           - type: rss
+            title: Latest Articles
             limit: 10
             collapse-after: 3
             cache: 12h
             feeds:
+              # Tech Blogs
               - url: https://selfh.st/rss/
                 title: selfh.st
                 limit: 4
@@ -31,6 +41,7 @@ pages:
               - url: https://ishadeed.com/feed.xml
                 title: Ahmad Shadeed
                 limit: 3
+              # News & Media
               - url: https://www.vox.com/rss/index.xml
                 title: Vox
                 limit: 2
@@ -39,7 +50,9 @@ pages:
               - url: https://openai.com/news/rss.xml
                 title: OpenAI News
 
+          # Twitch Channels
           - type: twitch-channels
+            title: Live Streams
             channels:
               - theprimeagen
               - extraemily
@@ -49,14 +62,19 @@ pages:
               - qtcinderella
               - arky
 
+      # CENTER - Main Content Area
       - size: full
         widgets:
+          # Developer Communities
           - type: group
+            title: Dev Communities
             widgets:
               - type: hacker-news
               - type: lobsters
 
+          # YouTube Channels - Tech Content
           - type: videos
+            title: Latest Videos
             channels:
               - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
               - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
@@ -65,7 +83,9 @@ pages:
               - UCHnyfMqiRRG1u-2MsSQLbXA # Veritasium
               - BrandonButch
 
+          # Reddit Communities
           - type: group
+            title: Reddit
             widgets:
               - type: reddit
                 subreddit: technology
@@ -74,14 +94,18 @@ pages:
                 subreddit: selfhosted
                 show-thumbnails: true
 
+      # RIGHT SIDEBAR - Status & Markets
       - size: small
         widgets:
+          # Weather Information
           - type: weather
             location: ${WEATHER_LOCATION}
             units: ${WEATHER_UNITS}
             hour-format: 12h
 
+          # Software Releases
           - type: releases
+            title: Latest Releases
             cache: 1d
             repositories:
               - glanceapp/glance
@@ -89,7 +113,9 @@ pages:
               - immich-app/immich
               - syncthing/syncthing
 
+          # Financial Markets Overview
           - type: markets
+            title: Markets
             markets:
               - symbol: SPY
                 name: S&P 500
@@ -102,53 +128,66 @@ pages:
               - symbol: MSFT
                 name: Microsoft
 
-  # ===== Homelab =====
+  # ========================================================================
+  # HOMELAB PAGE - Infrastructure Management
+  # ========================================================================
   - name: Homelab
     columns:
-      # LEFT: Bookmarks (moved where Services used to be)
+      # LEFT - Quick Access Links
       - size: small
         widgets:
           - type: bookmarks
+            title: Infrastructure
             groups:
-              - title: DevOps & Sysadmin
+              - title: Cloud & DNS
                 links:
                   - title: Cloudflare Dashboard
                     url: https://dash.cloudflare.com/
                     icon: si:cloudflare
-                  - title: Cloudflare Zero Trust
+                  - title: Zero Trust
                     url: https://one.dash.cloudflare.com/
                     icon: si:cloudflare
-                  - title: Cloudflare Tunnels
+                  - title: Tunnels
                     url: https://one.dash.cloudflare.com/
                     icon: si:cloudflare
+
+              - title: Container Management
+                links:
                   - title: Portainer
                     url: ${PORTAINER_URL}
                     icon: si:portainer
                   - title: Dokploy
                     url: ${DOKPLOY_URL}
                     icon: si:docker
+                  - title: Docker Hub
+                    url: https://hub.docker.com/
+                    icon: si:docker
+
+              - title: Development
+                links:
+                  - title: GitHub
+                    url: https://github.com/
+                    icon: si:github
                   - title: Uptime Kuma
                     url: ${KUMA_URL}
                     icon: si:uptimekuma
                   - title: Authentik
                     url: ${AUTHENTIK_URL}
                     icon: si:authentik
-                  - title: GitHub
-                    url: https://github.com/
-                    icon: si:github
-                  - title: Docker Hub
-                    url: https://hub.docker.com/
-                    icon: si:docker
 
-      # MIDDLE: Search (on top) + Services (centered)
+      # CENTER - Search & Service Monitoring
       - size: full
         widgets:
+          # Search Bar
           - type: search
             autofocus: true
+
+          # Service Status Monitor
           - type: monitor
-            title: Services
+            title: Service Status
             cache: 1m
             sites:
+              # Infrastructure Services
               - title: Portainer
                 url: ${PORTAINER_URL}
                 icon: si:portainer
@@ -161,6 +200,7 @@ pages:
               - title: Uptime Kuma
                 url: ${KUMA_URL}
                 icon: si:uptimekuma
+              # User Services
               - title: Piped
                 url: ${PIPED_URL}
                 icon: si:youtube
@@ -174,50 +214,59 @@ pages:
                 url: ${VAULTWARDEN_URL}
                 icon: si:vaultwarden
 
-      # RIGHT: Lab stats (DNS + server stats)
+      # RIGHT - System Statistics
       - size: small
         widgets:
+          # DNS Statistics
           - type: dns-stats
-            title: DNS (Pi-hole)
-            service: pihole-v6        # use 'pihole' + token if v5
+            title: Pi-hole DNS
+            service: pihole-v6
             url: ${PIHOLE_URL}
             password: ${PIHOLE_PASSWORD}
             token: ${PIHOLE_TOKEN}
             hour-format: 12h
 
+          # Server Performance
           - type: server-stats
+            title: System Stats
             servers:
               - type: local
-                name: Host
+                name: Main Host
                 hide-mountpoints-by-default: true
               - type: remote
                 name: Raspberry Pi
                 url: http://192.168.5.219:61207
                 timeout: 15s
 
-  # ===== Markets (preset) =====
+  # ========================================================================
+  # MARKETS PAGE - Financial Dashboard
+  # ========================================================================
   - name: Markets
     columns:
+      # LEFT - Market Categories
       - size: small
         widgets:
+          # Major Indices
           - type: markets
-            title: Indices
+            title: Market Indices
             markets:
               - symbol: SPY
                 name: S&P 500
               - symbol: DX-Y.NYB
                 name: Dollar Index
 
+          # Cryptocurrency
           - type: markets
-            title: Crypto
+            title: Cryptocurrency
             markets:
               - symbol: BTC-USD
                 name: Bitcoin
               - symbol: ETH-USD
                 name: Ethereum
 
+          # Individual Stocks
           - type: markets
-            title: Stocks
+            title: Stock Portfolio
             sort-by: absolute-change
             markets:
               - symbol: NVDA
@@ -241,20 +290,24 @@ pages:
               - symbol: META
                 name: Meta
 
+      # CENTER - News & Content
       - size: full
         widgets:
+          # Financial News
           - type: rss
-            title: News
+            title: Financial News
             style: horizontal-cards
             feeds:
               - url: https://feeds.bloomberg.com/markets/news.rss
                 title: Bloomberg
               - url: https://moxie.foxbusiness.com/google-publisher/markets.xml
-                title: Fox Business
+                title: Fox Business Markets
               - url: https://moxie.foxbusiness.com/google-publisher/technology.xml
-                title: Fox Business
+                title: Fox Business Tech
 
+          # Financial Communities
           - type: group
+            title: Financial Communities
             widgets:
               - type: reddit
                 show-thumbnails: true
@@ -263,7 +316,9 @@ pages:
                 show-thumbnails: true
                 subreddit: wallstreetbets
 
+          # Financial YouTube Content
           - type: videos
+            title: Financial Content
             style: grid-cards
             collapse-after-rows: 3
             channels:
@@ -271,19 +326,22 @@ pages:
               - UCV6KDgJskWaEckne5aPA0aQ # Graham Stephan
               - UCAzhpt9DmG6PnHXjmJTvRGQ # Federal Reserve
 
+      # RIGHT - Detailed News
       - size: small
         widgets:
           - type: rss
-            title: News
+            title: Market Analysis
             limit: 30
             collapse-after: 13
             feeds:
               - url: https://www.ft.com/technology?format=rss
-                title: Financial Times
+                title: Financial Times Tech
               - url: https://feeds.a.dj.com/rss/RSSMarketsMain.xml
-                title: Wall Street Journal
+                title: WSJ Markets
 
-  # ===== Startpage (minimal) =====
+  # ========================================================================
+  # STARTPAGE - Minimal Landing Page
+  # ========================================================================
   - name: Startpage
     width: slim
     hide-desktop-navigation: true
@@ -291,55 +349,71 @@ pages:
     columns:
       - size: full
         widgets:
+          # Centered Search
           - type: search
             autofocus: true
 
+          # Essential Services Monitor
           - type: monitor
+            title: Quick Access
             cache: 1m
-            title: Services
             sites:
+              # Update these URLs to match your actual services
               - title: Jellyfin
-                url: https://yourdomain.com/
+                url: ${JELLYFIN_URL:-https://yourdomain.com/}
                 icon: si:jellyfin
               - title: Gitea
-                url: https://yourdomain.com/
+                url: ${GITEA_URL:-https://yourdomain.com/}
                 icon: si:gitea
               - title: qBittorrent
-                url: https://yourdomain.com/
+                url: ${QBITTORRENT_URL:-https://yourdomain.com/}
                 icon: si:qbittorrent
               - title: Immich
-                url: https://yourdomain.com/
+                url: ${IMMICH_URL}
                 icon: si:immich
               - title: AdGuard Home
-                url: https://yourdomain.com/
+                url: ${ADGUARD_URL:-https://yourdomain.com/}
                 icon: si:adguard
               - title: Vaultwarden
-                url: https://yourdomain.com/
+                url: ${VAULTWARDEN_URL}
                 icon: si:vaultwarden
 
+          # Essential Bookmarks
           - type: bookmarks
+            title: Quick Links
             groups:
-              - title: General
+              - title: Productivity
                 links:
                   - title: Gmail
                     url: https://mail.google.com/mail/u/0/
+                    icon: si:gmail
+                  - title: GitHub
+                    url: https://github.com/
+                    icon: si:github
                   - title: Amazon
                     url: https://www.amazon.com/
-                  - title: Github
-                    url: https://github.com/
+                    icon: si:amazon
+
               - title: Entertainment
                 links:
                   - title: YouTube
                     url: https://www.youtube.com/
+                    icon: si:youtube
                   - title: Prime Video
                     url: https://www.primevideo.com/
+                    icon: si:amazonprime
                   - title: Disney+
                     url: https://www.disneyplus.com/
+                    icon: si:disneyplus
+
               - title: Social
                 links:
                   - title: Reddit
                     url: https://www.reddit.com/
+                    icon: si:reddit
                   - title: Twitter
                     url: https://twitter.com/
+                    icon: si:twitter
                   - title: Instagram
                     url: https://www.instagram.com/
+                    icon: si:instagram
