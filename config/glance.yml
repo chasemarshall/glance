@@ -197,6 +197,12 @@ pages:
               - title: Pi-hole
                 url: https://pihole.withmilo.xyz
                 icon: si:pihole
+              - title: Netdata
+                url: https://netdata.withmilo.xyz
+                icon: si:netdata
+              - title: Authentik
+                url: https://authentik.withmilo.xyz
+                icon: si:authentik
 
           # Reddit Communities
           - type: group
