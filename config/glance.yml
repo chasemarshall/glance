@@ -158,7 +158,7 @@ pages:
         widgets:
           - type: iframe
             title: Fusion RSS Reader
-            url: https://fusion-production-2363.up.railway.app/
+            source: https://fusion-production-2363.up.railway.app/
             height: 800
             # Alternative if iframe doesn't work:
           # - type: bookmarks
