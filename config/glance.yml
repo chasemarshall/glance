@@ -142,6 +142,20 @@ pages:
             units: ${WEATHER_UNITS}
             hour-format: 12h
 
+          # Pi-hole DNS Statistics
+          - type: dns-stats
+            title: Pi-hole DNS Stats
+            # Choose the appropriate service based on your Pi-hole version:
+            # For Pi-hole v5 and below, use: service: pihole
+            # For Pi-hole v6 and above, use: service: pihole-v6
+            service: pihole-v6  # Change this to "pihole" if you're using v5 or below
+            url: https://pihole.withmilo.xyz
+            # For Pi-hole v6, you need either the web interface password or an application password
+            password: ${PIHOLE_PASSWORD}  # Set this in your .env file
+            # If using self-signed certificates, uncomment the next line:
+            # allow-insecure: true
+            cache: 5m
+
           # Bookmarks
           - type: bookmarks
             title: Quick Access
